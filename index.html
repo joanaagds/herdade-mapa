@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Mapa Interativo - Herdade Alentejo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+  <style>
+    #map {
+      height: 100vh;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Inicializa o mapa centrado em Grândola
+    var map = L.map('map').setView([38.1775, -8.5671], 11);
+
+    // Camada base OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contribuidores'
+    }).addTo(map);
+
+    // Marcador: Herdade (exemplo aproximado)
+    L.marker([38.1520, -8.5800]).addTo(map)
+      .bindPopup("<b>📌 Herdade - Projeto T4+1</b><br>Zona rural de Grândola.")
+      .openPopup();
+
+    // Marcador: Praia do Pego
+    L.marker([38.3081, -8.7894]).addTo(map)
+      .bindPopup("<b>🏖️ Praia do Pego</b><br>Praia de areia fina, natureza e sofisticação.");
+
+    // Marcador: Comporta
+    L.marker([38.3831, -8.7827]).addTo(map)
+      .bindPopup("<b>🏝️ Comporta</b><br>Destino de charme no litoral alentejano.");
+  </script>
+
+</body>
+</html>
